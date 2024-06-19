@@ -9,11 +9,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('your-building-image.jpg'); /* 사옥 이미지를 배경으로 사용 */
-            background-size: cover;
-            background-position: center;
-            color: white;
+            background-color: #f0f0f0;
+            color: #333;
         }
+
         .container {
             background: rgba(0, 0, 0, 0.5);
             padding: 20px;
@@ -21,16 +20,28 @@
             max-width: 600px;
             border-radius: 10px;
         }
+
         .step {
             display: none;
+            margin-bottom: 20px;
         }
+
         .step.active {
             display: block;
         }
+
+        .step img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
         .buttons {
             display: flex;
             justify-content: space-between;
+            margin-top: 20px;
         }
+
         button {
             background-color: #007BFF;
             color: white;
@@ -39,6 +50,7 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
         button:disabled {
             background-color: #cccccc;
         }
@@ -48,6 +60,7 @@
     <div class="container">
         <div class="step active" id="step1">
             <h2>1. 배너를 따라 스피드게이트로 이동한다.</h2>
+            <img src="path/to/your/image1.jpg" alt="Step 1 Image">
             <div class="buttons">
                 <button disabled>이전 단계</button>
                 <button onclick="showStep(2)">다음 단계</button>
@@ -55,6 +68,7 @@
         </div>
         <div class="step" id="step2">
             <h2>2. 보안 직원에게 입장권을 보여준다.</h2>
+            <img src="path/to/your/image2.jpg" alt="Step 2 Image">
             <div class="buttons">
                 <button onclick="showStep(1)">이전 단계</button>
                 <button onclick="showStep(3)">다음 단계</button>
@@ -62,6 +76,7 @@
         </div>
         <div class="step" id="step3">
             <h2>3. 스피드게이트 통과 후 E/V를 타고 3층으로 올라간다.</h2>
+            <img src="path/to/your/image3.jpg" alt="Step 3 Image">
             <div class="buttons">
                 <button onclick="showStep(2)">이전 단계</button>
                 <button onclick="showStep(4)">다음 단계</button>
@@ -69,6 +84,7 @@
         </div>
         <div class="step" id="step4">
             <h2>4. 안내데스크에서 OT 장소를 안내받아 이동한다.</h2>
+            <img src="path/to/your/image4.jpg" alt="Step 4 Image">
             <div class="buttons">
                 <button onclick="showStep(3)">이전 단계</button>
                 <button disabled>다음 단계</button>
@@ -87,3 +103,4 @@
     </script>
 </body>
 </html>
+
