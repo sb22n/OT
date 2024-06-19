@@ -22,96 +22,89 @@
             text-align: center;
         }
 
-        .step {
-            display: none;
+        .tabs {
+            display: flex;
+            justify-content: center;
             margin-bottom: 20px;
         }
 
-        .step.active {
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007BFF; /* 탭 배경색 */
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            color: white;
+        }
+
+        .tab.active {
+            background-color: #0056b3; /* 활성화된 탭 배경색 */
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
             display: block;
         }
 
-        .step img {
+        .tab-content img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .center-button {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #007BFF; /* 버튼 색상 */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:disabled {
-            background-color: #cccccc;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="step active" id="intro">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('intro')">첫 화면</button>
+            <button class="tab" onclick="showTab('step1')">단계 1</button>
+            <button class="tab" onclick="showTab('step2')">단계 2</button>
+            <button class="tab" onclick="showTab('step3')">단계 3</button>
+            <button class="tab" onclick="showTab('step4')">단계 4</button>
+        </div>
+        <div class="tab-content active" id="intro">
             <img src="building_image.jpg" alt="Building Image">
             <div class="center-button">
-                <button onclick="showStep(1)">OT 장소 가는 방법</button>
+                <button class="tab" onclick="showTab('step1')">OT 장소 가는 방법</button>
             </div>
         </div>
-        <div class="step" id="step1">
+        <div class="tab-content" id="step1">
             <h2>1. 배너를 따라<br>스피드게이트로 이동한다.</h2>
             <img src="image1.jpg" alt="Step 1 Image">
-            <div class="buttons">
-                <button onclick="showStep('intro')">첫 화면으로</button>
-                <button onclick="showStep(2)">다음 단계</button>
-            </div>
         </div>
-        <div class="step" id="step2">
+        <div class="tab-content" id="step2">
             <h2>2. 보안 직원에게<br>입장권을 보여준다.</h2>
             <img src="image2.jpg" alt="Step 2 Image">
-            <div class="buttons">
-                <button onclick="showStep(1)">이전 단계</button>
-                <button onclick="showStep(3)">다음 단계</button>
-            </div>
         </div>
-        <div class="step" id="step3">
+        <div class="tab-content" id="step3">
             <h2>3. 스피드게이트 통과 후<br>E/V를 타고 3층으로 올라간다.</h2>
             <img src="image3.jpg" alt="Step 3 Image">
-            <div class="buttons">
-                <button onclick="showStep(2)">이전 단계</button>
-                <button onclick="showStep(4)">다음 단계</button>
-            </div>
         </div>
-        <div class="step" id="step4">
+        <div class="tab-content" id="step4">
             <h2>4. 안내데스크에서<br>OT 장소를 안내받아 이동한다.</h2>
             <img src="image4.jpg" alt="Step 4 Image">
-            <div class="buttons">
-                <button onclick="showStep(3)">이전 단계</button>
-                <button onclick="showStep('intro')">첫 화면으로</button>
-            </div>
         </div>
     </div>
 
     <script>
-        function showStep(stepNumber) {
-            var steps = document.querySelectorAll('.step');
-            steps.forEach(function(step) {
-                step.classList.remove('active');
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab');
+            var contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
             });
-            document.getElementById('step' + stepNumber).classList.add('active');
+
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+            document.getElementById(tabId).classList.add('active');
         }
     </script>
 </body>
