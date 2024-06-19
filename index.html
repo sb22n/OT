@@ -9,12 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #003569; /* 네이비 배경색 */
+            color: #ffffff; /* 흰색 텍스트 */
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7); /* 배경 불투명도 조절 */
             padding: 20px;
             margin: 50px auto;
             max-width: 600px;
@@ -50,7 +50,7 @@
         }
 
         button {
-            background-color: #007BFF;
+            background-color: #007BFF; /* 버튼 색상 */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -75,7 +75,7 @@
             <h2>1. 배너를 따라 스피드게이트로 이동한다.</h2>
             <img src="image1.jpg" alt="Step 1 Image">
             <div class="buttons">
-                <button disabled>이전 단계</button>
+                <button onclick="showStep('intro')">첫 화면으로</button>
                 <button onclick="showStep(2)">다음 단계</button>
             </div>
         </div>
@@ -100,7 +100,7 @@
             <img src="image4.jpg" alt="Step 4 Image">
             <div class="buttons">
                 <button onclick="showStep(3)">이전 단계</button>
-                <button disabled>다음 단계</button>
+                <button onclick="showStep('intro')">첫 화면으로</button>
             </div>
         </div>
     </div>
@@ -116,6 +116,5 @@
     </script>
 </body>
 </html>
-
 
 
