@@ -9,29 +9,35 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #003569; /* 네이비 배경색 */
-            color: #ffffff; /* 흰색 텍스트 */
+            background-color: #f0f0f0;
+            color: #333;
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.7); /* 배경 불투명도 조절 */
+            background-color: #003569; /* 네이비 배경색 */
             padding: 20px;
             margin: 50px auto;
-            max-width: 600px;
+            max-width: 800px;
             border-radius: 10px;
+            color: #ffffff; /* 흰색 텍스트 */
             text-align: center;
         }
 
-        .step {
+        .card {
+            background-color: #ffffff;
+            color: #003569;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none;
-            margin-bottom: 20px;
         }
 
-        .step.active {
+        .card.active {
             display: block;
         }
 
-        .step img {
+        .card img {
             width: 100%;
             height: auto;
             border-radius: 10px;
@@ -43,14 +49,8 @@
             margin-top: 20px;
         }
 
-        .center-button {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #007BFF; /* 버튼 색상 */
+        .buttons button {
+            background-color: #007BFF;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -58,60 +58,86 @@
             border-radius: 5px;
         }
 
-        button:disabled {
+        .buttons button:disabled {
             background-color: #cccccc;
+        }
+
+        .center-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .center-button button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="step active" id="intro">
+        <div class="card active" id="intro">
+            <div class="emoji">🏢</div>
+            <h2>사옥 전경</h2>
             <img src="building_image.jpg" alt="Building Image">
             <div class="center-button">
-                <button onclick="showStep(1)">OT 장소 가는 방법</button>
+                <button onclick="showCard('step1')">OT 장소 가는 방법</button>
             </div>
         </div>
-        <div class="step" id="step1">
+        <div class="card" id="step1">
+            <div class="emoji">🚶‍♂️</div>
             <h2>1. 배너를 따라<br>스피드게이트로 이동한다.</h2>
             <img src="image1.jpg" alt="Step 1 Image">
             <div class="buttons">
-                <button onclick="showStep('intro')">첫 화면으로</button>
-                <button onclick="showStep(2)">다음 단계</button>
+                <button onclick="showCard('intro')">첫 화면으로</button>
+                <button onclick="showCard('step2')">다음 단계</button>
             </div>
         </div>
-        <div class="step" id="step2">
+        <div class="card" id="step2">
+            <div class="emoji">🎫</div>
             <h2>2. 보안 직원에게<br>입장권을 보여준다.</h2>
             <img src="image2.jpg" alt="Step 2 Image">
             <div class="buttons">
-                <button onclick="showStep(1)">이전 단계</button>
-                <button onclick="showStep(3)">다음 단계</button>
+                <button onclick="showCard('step1')">이전 단계</button>
+                <button onclick="showCard('step3')">다음 단계</button>
             </div>
         </div>
-        <div class="step" id="step3">
+        <div class="card" id="step3">
+            <div class="emoji">🏢</div>
             <h2>3. 스피드게이트 통과 후<br>E/V를 타고 3층으로 올라간다.</h2>
             <img src="image3.jpg" alt="Step 3 Image">
             <div class="buttons">
-                <button onclick="showStep(2)">이전 단계</button>
-                <button onclick="showStep(4)">다음 단계</button>
+                <button onclick="showCard('step2')">이전 단계</button>
+                <button onclick="showCard('step4')">다음 단계</button>
             </div>
         </div>
-        <div class="step" id="step4">
+        <div class="card" id="step4">
+            <div class="emoji">🗺️</div>
             <h2>4. 안내데스크에서<br>OT 장소를 안내받아 이동한다.</h2>
             <img src="image4.jpg" alt="Step 4 Image">
             <div class="buttons">
-                <button onclick="showStep(3)">이전 단계</button>
-                <button onclick="showStep('intro')">첫 화면으로</button>
+                <button onclick="showCard('step3')">이전 단계</button>
+                <button onclick="showCard('intro')">첫 화면으로</button>
             </div>
         </div>
     </div>
 
     <script>
-        function showStep(stepNumber) {
-            var steps = document.querySelectorAll('.step');
-            steps.forEach(function(step) {
-                step.classList.remove('active');
+        function showCard(cardId) {
+            var cards = document.querySelectorAll('.card');
+            cards.forEach(function(card) {
+                card.classList.remove('active');
             });
-            document.getElementById('step' + stepNumber).classList.add('active');
+            document.getElementById(cardId).classList.add('active');
         }
     </script>
 </body>
