@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교육장소 찾아오는 방법</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('your-building-image.jpg'); /* 사옥 이미지를 배경으로 사용 */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="step active" id="step1">
+            <h2>1. 배너를 따라 스피드게이트로 이동한다.</h2>
+            <div class="buttons">
+                <button disabled>이전 단계</button>
+                <button onclick="showStep(2)">다음 단계</button>
+            </div>
+        </div>
+        <div class="step" id="step2">
+            <h2>2. 보안 직원에게 입장권을 보여준다.</h2>
+            <div class="buttons">
+                <button onclick="showStep(1)">이전 단계</button>
+                <button onclick="showStep(3)">다음 단계</button>
+            </div>
+        </div>
+        <div class="step" id="step3">
+            <h2>3. 스피드게이트 통과 후 E/V를 타고 3층으로 올라간다.</h2>
+            <div class="buttons">
+                <button onclick="showStep(2)">이전 단계</button>
+                <button onclick="showStep(4)">다음 단계</button>
+            </div>
+        </div>
+        <div class="step" id="step4">
+            <h2>4. 안내데스크에서 OT 장소를 안내받아 이동한다.</h2>
+            <div class="buttons">
+                <button onclick="showStep(3)">이전 단계</button>
+                <button disabled>다음 단계</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStep(stepNumber) {
+            var steps = document.querySelectorAll('.step');
+            steps.forEach(function(step) {
+                step.classList.remove('active');
+            });
+            document.getElementById('step' + stepNumber).classList.add('active');
+        }
+    </script>
+</body>
+</html>
