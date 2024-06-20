@@ -84,7 +84,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="swipe-container">
         <div class="card active" id="intro">
             <div class="emoji">🏢</div>
             <h2>사옥 전경</h2>
@@ -138,6 +138,65 @@
                 card.classList.remove('active');
             });
             document.getElementById(cardId).classList.add('active');
+        }
+
+        // Swipe functionality
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        const swipeContainer = document.getElementById('swipe-container');
+
+        swipeContainer.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+        }, false);
+
+        swipeContainer.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const activeCard = document.querySelector('.card.active');
+            const activeId = activeCard.id;
+
+            if (touchendX < touchstartX) {
+                // Swipe left
+                switch (activeId) {
+                    case 'intro':
+                        showCard('step1');
+                        break;
+                    case 'step1':
+                        showCard('step2');
+                        break;
+                    case 'step2':
+                        showCard('step3');
+                        break;
+                    case 'step3':
+                        showCard('step4');
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (touchendX > touchstartX) {
+                // Swipe right
+                switch (activeId) {
+                    case 'step1':
+                        showCard('intro');
+                        break;
+                    case 'step2':
+                        showCard('step1');
+                        break;
+                    case 'step3':
+                        showCard('step2');
+                        break;
+                    case 'step4':
+                        showCard('step3');
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     </script>
 </body>
