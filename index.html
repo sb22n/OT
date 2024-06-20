@@ -3,48 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG 스타일 교육장소 안내</title>
+    <title>교육장소 찾아오는 방법</title>
     <style>
         body {
-            font-family: 'Georgia', serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('rpg_background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
+            background-color: #f0f0f0;
+            color: #333;
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.8);
+            background-color: #003569; /* 네이비 배경색 */
             padding: 20px;
             margin: 50px auto;
-            max-width: 600px;
+            max-width: 800px;
             border-radius: 10px;
+            color: #ffffff; /* 흰색 텍스트 */
             text-align: center;
         }
 
-        .quest-card {
-            background: rgba(255, 255, 255, 0.9);
-            color: #3e2723;
+        .card {
+            background-color: #ffffff;
+            color: #003569;
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none;
-            font-family: 'Georgia', serif;
         }
 
-        .quest-card.active {
+        .card.active {
             display: block;
-            animation: fadeIn 0.5s;
         }
 
-        .quest-card h2 {
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-        }
-
-        .quest-card img {
+        .card img {
             width: 100%;
             height: auto;
             border-radius: 10px;
@@ -57,22 +50,16 @@
         }
 
         .buttons button {
-            background-color: #6d4c41;
+            background-color: #007BFF;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
-            font-family: 'Georgia', serif;
         }
 
         .buttons button:disabled {
             background-color: #cccccc;
-        }
-
-        .buttons button:hover:not(:disabled) {
-            background-color: #5d4037;
         }
 
         .center-button {
@@ -82,99 +69,71 @@
         }
 
         .center-button button {
-            background-color: #6d4c41;
+            background-color: #007BFF;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
-            font-family: 'Georgia', serif;
-        }
-
-        .center-button button:hover {
-            background-color: #5d4037;
         }
 
         .emoji {
             font-size: 2em;
             margin-bottom: 10px;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .quest-header {
-            background-color: #8d6e63;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="container" id="swipe-container">
-        <div class="quest-card active" id="intro">
-            <div class="quest-header">퀘스트: 사옥 탐험</div>
+        <div class="card active" id="intro">
             <div class="emoji">🏢</div>
             <h2>사옥 전경</h2>
             <img src="building_image.jpg" alt="Building Image">
             <div class="center-button">
-                <button onclick="showCard('step1')">퀘스트 시작</button>
+                <button onclick="showCard('step1')">OT 장소 가는 방법</button>
             </div>
         </div>
-        <div class="quest-card" id="step1">
-            <div class="quest-header">퀘스트 1</div>
+        <div class="card" id="step1">
             <div class="emoji">🚶‍♂️</div>
-            <h2>배너를 따라<br>스피드게이트로 이동</h2>
+            <h2>1. 배너를 따라<br>스피드게이트로 이동한다.</h2>
             <img src="image1.jpg" alt="Step 1 Image">
             <div class="buttons">
-                <button onclick="showCard('intro')">처음으로</button>
-                <button onclick="showCard('step2')">다음 퀘스트</button>
+                <button onclick="showCard('intro')">첫 화면으로</button>
+                <button onclick="showCard('step2')">다음 단계</button>
             </div>
         </div>
-        <div class="quest-card" id="step2">
-            <div class="quest-header">퀘스트 2</div>
+        <div class="card" id="step2">
             <div class="emoji">🎫</div>
-            <h2>보안 직원에게<br>입장권 보여주기</h2>
+            <h2>2. 보안 직원에게<br>입장권을 보여준다.</h2>
             <img src="image2.jpg" alt="Step 2 Image">
             <div class="buttons">
-                <button onclick="showCard('step1')">이전 퀘스트</button>
-                <button onclick="showCard('step3')">다음 퀘스트</button>
+                <button onclick="showCard('step1')">이전 단계</button>
+                <button onclick="showCard('step3')">다음 단계</button>
             </div>
         </div>
-        <div class="quest-card" id="step3">
-            <div class="quest-header">퀘스트 3</div>
+        <div class="card" id="step3">
             <div class="emoji">🏢</div>
-            <h2>스피드게이트 통과 후<br>E/V 타기</h2>
+            <h2>3. 스피드게이트 통과 후<br>E/V를 타고 3층으로 올라간다.</h2>
             <img src="image3.jpg" alt="Step 3 Image">
             <div class="buttons">
-                <button onclick="showCard('step2')">이전 퀘스트</button>
-                <button onclick="showCard('step4')">다음 퀘스트</button>
+                <button onclick="showCard('step2')">이전 단계</button>
+                <button onclick="showCard('step4')">다음 단계</button>
             </div>
         </div>
-        <div class="quest-card" id="step4">
-            <div class="quest-header">퀘스트 4</div>
+        <div class="card" id="step4">
             <div class="emoji">🗺️</div>
-            <h2>안내데스크에서<br>OT 장소 안내받기</h2>
+            <h2>4. 안내데스크에서<br>OT 장소를 안내받아 이동한다.</h2>
             <img src="image4.jpg" alt="Step 4 Image">
             <div class="buttons">
-                <button onclick="showCard('step3')">이전 퀘스트</button>
-                <button onclick="showCard('intro')">처음으로</button>
+                <button onclick="showCard('step3')">이전 단계</button>
+                <button onclick="showCard('intro')">첫 화면으로</button>
             </div>
         </div>
     </div>
 
     <script>
         function showCard(cardId) {
-            var cards = document.querySelectorAll('.quest-card');
+            var cards = document.querySelectorAll('.card');
             cards.forEach(function(card) {
                 card.classList.remove('active');
             });
@@ -197,7 +156,7 @@
         }, false);
 
         function handleSwipe() {
-            const activeCard = document.querySelector('.quest-card.active');
+            const activeCard = document.querySelector('.card.active');
             const activeId = activeCard.id;
 
             if (touchendX < touchstartX) {
