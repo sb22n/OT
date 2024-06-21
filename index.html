@@ -14,19 +14,24 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 20px auto;
             padding: 20px;
             text-align: center;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .card {
+            display: inline-block;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
+            margin: 20px 10px;
             padding: 20px;
             text-align: left;
+            width: 80%;
+            vertical-align: top;
         }
 
         .card img {
@@ -48,50 +53,6 @@
         .card .emoji {
             font-size: 2em;
             margin-bottom: 10px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .buttons button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .buttons button:disabled {
-            background-color: #cccccc;
-        }
-
-        .buttons button:hover:not(:disabled) {
-            background-color: #0056b3;
-        }
-
-        .center-button {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .center-button button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .center-button button:hover {
-            background-color: #0056b3;
         }
 
         .header {
@@ -118,6 +79,17 @@
             text-decoration: none;
             font-size: 1em;
         }
+
+        .swipe-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .swipe-container .card {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
     </style>
 </head>
 <body>
@@ -125,62 +97,72 @@
         <div class="header">
             <span class="emoji">📍</span> 교육장소 안내
         </div>
-        <div class="card" id="step1">
-            <div class="emoji">🚶‍♂️</div>
-            <h2>1. 배너를 따라 스피드게이트로 이동</h2>
-            <img src="image1.JPG" alt="Step 1 Image">
-            <p>배너를 따라 이동하여 스피드게이트에 도착합니다.</p>
-            <div class="buttons">
-                <button onclick="showCard('step1')">처음으로</button>
-                <button onclick="showCard('step2')">다음 단계</button>
+        <div class="swipe-container" id="swipe-container">
+            <div class="card" id="step1">
+                <div class="emoji">🚶‍♂️</div>
+                <h2>1. 배너를 따라 스피드게이트로 이동</h2>
+                <img src="image1.JPG" alt="Step 1 Image">
+                <p>배너를 따라 이동하여 스피드게이트에 도착합니다.</p>
             </div>
-        </div>
-        <div class="card" id="step2">
-            <div class="emoji">🎫</div>
-            <h2>2. 보안 직원에게 입장권 보여주기</h2>
-            <img src="image2.JPG" alt="Step 2 Image">
-            <p>보안 직원에게 입장권을 보여주고 입장합니다.</p>
-            <div class="buttons">
-                <button onclick="showCard('step1')">이전 단계</button>
-                <button onclick="showCard('step3')">다음 단계</button>
+            <div class="card" id="step2">
+                <div class="emoji">🎫</div>
+                <h2>2. 보안 직원에게 입장권 보여주기</h2>
+                <img src="image2.JPG" alt="Step 2 Image">
+                <p>보안 직원에게 입장권을 보여주고 입장합니다.</p>
             </div>
-        </div>
-        <div class="card" id="step3">
-            <div class="emoji">🏢</div>
-            <h2>3. 스피드게이트 통과 후 E/V 타기</h2>
-            <img src="image3.JPG" alt="Step 3 Image">
-            <p>스피드게이트를 통과한 후 엘리베이터를 타고 3층으로 올라갑니다.</p>
-            <div class="buttons">
-                <button onclick="showCard('step2')">이전 단계</button>
-                <button onclick="showCard('step4')">다음 단계</button>
+            <div class="card" id="step3">
+                <div class="emoji">🏢</div>
+                <h2>3. 스피드게이트 통과 후 E/V 타기</h2>
+                <img src="image3.JPG" alt="Step 3 Image">
+                <p>스피드게이트를 통과한 후 엘리베이터를 타고 3층으로 올라갑니다.</p>
             </div>
-        </div>
-        <div class="card" id="step4">
-            <div class="emoji">🗺️</div>
-            <h2>4. 안내데스크에서 OT 장소 안내받기</h2>
-            <img src="image4.jpg" alt="Step 4 Image">
-            <p>안내데스크에서 OT 장소를 안내받아 이동합니다.</p>
-            <div class="buttons">
-                <button onclick="showCard('step3')">이전 단계</button>
-                <button onclick="showCard('step1')">처음으로</button>
+            <div class="card" id="step4">
+                <div class="emoji">🗺️</div>
+                <h2>4. 안내데스크에서 OT 장소 안내받기</h2>
+                <img src="image4.jpg" alt="Step 4 Image">
+                <p>안내데스크에서 OT 장소를 안내받아 이동합니다.</p>
             </div>
         </div>
         <div class="footer">
-            <a href="#">카톡설명서</a>
-            <a href="#">인스타그램</a>
-            <a href="#">유튜브</a>
+            <a href="#" id="kakao-guide">카톡설명서</a>
+            <a href="#" id="instagram">인스타그램</a>
+            <a href="#" id="youtube">유튜브</a>
         </div>
     </div>
 
     <script>
-        function showCard(cardId) {
-            var cards = document.querySelectorAll('.card');
-            cards.forEach(function(card) {
-                card.style.display = 'none';
-            });
-            document.getElementById(cardId).style.display = 'block';
-        }
+        // JavaScript to handle the swipe functionality if needed
+        const swipeContainer = document.getElementById('swipe-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        swipeContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            swipeContainer.classList.add('active');
+            startX = e.pageX - swipeContainer.offsetLeft;
+            scrollLeft = swipeContainer.scrollLeft;
+        });
+
+        swipeContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            swipeContainer.classList.remove('active');
+        });
+
+        swipeContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            swipeContainer.classList.remove('active');
+        });
+
+        swipeContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - swipeContainer.offsetLeft;
+            const walk = (x - startX) * 2; //scroll-fast
+            swipeContainer.scrollLeft = scrollLeft - walk;
+        });
     </script>
 </body>
 </html>
+
 
