@@ -60,6 +60,9 @@
             box-sizing: border-box;
             transition: transform 0.3s ease;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .swipe-container .card:hover {
@@ -69,18 +72,22 @@
         .card img {
             width: 100%;
             border-radius: 10px;
+            margin-top: auto;
         }
 
         .card h2 {
             font-size: 1em; /* 제목 크기 줄임 */
             margin: 10px 0;
             word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+            height: 2.4em; /* 고정 높이 설정 */
+            overflow: hidden; /* 텍스트가 넘치면 숨김 */
         }
 
         .card p {
             font-size: 1em;
             line-height: 1.5;
             color: #666;
+            margin-top: auto;
         }
 
         .card .emoji {
@@ -120,6 +127,9 @@
             transform: none; /* 카드 크기 증가 해제 */
             text-align: left;
             font-size: 1.2em; /* 전체 화면에서 글씨 크기 증가 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .overlay .card .emoji,
@@ -315,3 +325,4 @@
     </script>
 </body>
 </html>
+
