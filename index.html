@@ -43,6 +43,7 @@
             max-width: 300px;
             box-sizing: border-box;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .swipe-container .card:hover {
@@ -55,7 +56,7 @@
         }
 
         .card h2 {
-            font-size: 1.5em;
+            font-size: 1.2em; /* 제목 크기 줄임 */
             margin: 10px 0;
         }
 
@@ -78,6 +79,73 @@
             margin-bottom: 20px;
             font-size: 1.2em;
         }
+
+        .contact-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            text-align: left;
+            width: 80%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .contact-container h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .overlay .card {
+            width: 100%;
+            max-width: none;
+            height: auto;
+            margin: 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .overlay .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .buttons button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:disabled {
+            background-color: #cccccc;
+        }
+
+        .buttons button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -86,34 +154,77 @@
             <span class="emoji">📍</span> 교육장소 안내
         </div>
         <div class="swipe-container" id="swipe-container">
-            <div class="card" id="step1">
+            <div class="card" id="step1" onclick="showOverlay('step1')">
                 <div class="emoji">🚶‍♂️</div>
                 <h2>1. 배너를 따라 스피드게이트로 이동</h2>
                 <img src="image1.JPG" alt="Step 1 Image">
                 <p>배너를 따라 이동하여 스피드게이트에 도착합니다.</p>
             </div>
-            <div class="card" id="step2">
+            <div class="card" id="step2" onclick="showOverlay('step2')">
                 <div class="emoji">🎫</div>
                 <h2>2. 보안 직원에게 입장권 보여주기</h2>
                 <img src="image2.JPG" alt="Step 2 Image">
                 <p>보안 직원에게 입장권을 보여주고 입장합니다.</p>
             </div>
-            <div class="card" id="step3">
+            <div class="card" id="step3" onclick="showOverlay('step3')">
                 <div class="emoji">🏢</div>
                 <h2>3. 스피드게이트 통과 후 E/V 타기</h2>
                 <img src="image3.JPG" alt="Step 3 Image">
                 <p>스피드게이트를 통과한 후 엘리베이터를 타고 3층으로 올라갑니다.</p>
             </div>
-            <div class="card" id="step4">
+            <div class="card" id="step4" onclick="showOverlay('step4')">
                 <div class="emoji">🗺️</div>
                 <h2>4. 안내데스크에서 OT 장소 안내받기</h2>
                 <img src="image4.jpg" alt="Step 4 Image">
                 <p>안내데스크에서 OT 장소를 안내받아 이동합니다.</p>
             </div>
         </div>
+        <div class="contact-container">
+            <h3>담당자 연락처</h3>
+            <p>홍길동1: 010-0000-0000</p>
+            <p>홍길동2: 010-0000-0000</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="card" id="overlay-content">
+            <!-- 내용이 여기에 동적으로 삽입됩니다 -->
+        </div>
+        <div class="buttons">
+            <button id="prevBtn" onclick="navigateOverlay('prev')">이전</button>
+            <button id="nextBtn" onclick="navigateOverlay('next')">다음</button>
+        </div>
     </div>
 
     <script>
+        let currentStep = 1;
+
+        function showOverlay(stepId) {
+            currentStep = parseInt(stepId.replace('step', ''));
+            const cardContent = document.getElementById(stepId).innerHTML;
+            document.getElementById('overlay-content').innerHTML = cardContent;
+            document.getElementById('overlay').style.display = 'flex';
+            updateOverlayButtons();
+        }
+
+        function closeOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function navigateOverlay(direction) {
+            if (direction === 'next') {
+                currentStep++;
+            } else if (direction === 'prev') {
+                currentStep--;
+            }
+            showOverlay(`step${currentStep}`);
+        }
+
+        function updateOverlayButtons() {
+            document.getElementById('prevBtn').disabled = currentStep === 1;
+            document.getElementById('nextBtn').disabled = currentStep === 4;
+        }
+
         // JavaScript to handle the swipe functionality
         const swipeContainer = document.getElementById('swipe-container');
         let isDown = false;
