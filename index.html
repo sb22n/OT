@@ -97,7 +97,6 @@
             background-color: #fff;
             color: black;
             display: none;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 1000;
@@ -106,22 +105,23 @@
         }
 
         .overlay .card {
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 800px;
             height: auto;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: none;
             transform: none; /* 카드 크기 증가 해제 */
             text-align: left;
+            font-size: 1.5em; /* 전체 화면에서 글씨 크기 증가 */
         }
 
         .overlay .card .emoji,
         .overlay .card h2,
         .overlay .card p,
         .overlay .card img {
-            margin-top: 0;
+            margin-top: 20px;
         }
 
         .overlay .buttons {
@@ -151,7 +151,7 @@
             background-color: #0056b3;
         }
 
-        .overlay .close-btn {
+        .close-btn {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -165,17 +165,17 @@
             font-size: 1.2em;
         }
 
-        .overlay .close-btn:hover {
+        .close-btn:hover {
             background-color: #0056b3;
         }
 
-        .overlay .prev-btn {
+        .prev-btn {
             position: absolute;
             left: 20px;
             bottom: 20px;
         }
 
-        .overlay .next-btn {
+        .next-btn {
             position: absolute;
             right: 20px;
             bottom: 20px;
