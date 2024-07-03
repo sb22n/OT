@@ -21,13 +21,22 @@
             overflow-x: hidden;
         }
 
-        .header, .contact-container {
+        .header {
             background-color: #007BFF;
             color: white;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 20px;
             font-size: 1.2em;
+        }
+
+        .contact-container {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1em; /* 연락처 박스 크기 줄임 */
         }
 
         .swipe-container {
@@ -93,7 +102,7 @@
             background-color: #fff;
             color: black;
             display: none;
-            align-items: center;
+            align-items: flex-start; /* 상단 정렬 */
             justify-content: center;
             z-index: 1000;
             padding: 20px;
@@ -108,23 +117,33 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: none;
-            transform: scale(1.2); /* 카드 크기 증가 */
+            transform: scale(1.1); /* 카드 크기 증가 */
+        }
+
+        .overlay .card .emoji,
+        .overlay .card h2,
+        .overlay .card p,
+        .overlay .card img {
+            margin-top: 0;
         }
 
         .overlay .buttons {
-            margin-top: 20px;
             display: flex;
             justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
         }
 
         .buttons button {
             background-color: #007BFF;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px; /* 버튼 크기 증가 */
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            font-size: 1.2em;
         }
 
         .buttons button:disabled {
@@ -137,24 +156,24 @@
 
         .overlay .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 20px; /* 버튼 크기 증가 */
+            right: 20px;
             background-color: transparent;
             border: none;
-            font-size: 1.5em;
+            font-size: 2em;
             cursor: pointer;
         }
 
         .overlay .prev-btn {
             position: absolute;
-            bottom: 20px;
             left: 20px;
+            bottom: 20px;
         }
 
         .overlay .next-btn {
             position: absolute;
-            bottom: 20px;
             right: 20px;
+            bottom: 20px;
         }
     </style>
 </head>
