@@ -151,12 +151,20 @@
 
         .overlay .close-btn {
             position: absolute;
-            top: 20px; /* 버튼 크기 증가 */
+            top: 20px;
             right: 20px;
-            background-color: transparent;
+            background-color: #007BFF;
+            color: white;
             border: none;
-            font-size: 2em;
+            padding: 12px 24px; /* 닫기 버튼 크기 증가 */
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .overlay .close-btn:hover {
+            background-color: #0056b3;
         }
 
         .overlay .prev-btn {
@@ -204,14 +212,14 @@
             </div>
         </div>
         <div class="contact-container">
-            <h3>담당자 연락처 📞</h3>
-            <p>윤상빈: 02-6201-0811</p>
-            <p>윤성은: 02-6202-4564</p>
+            <h3>담당자 연락처</h3>
+            <p>홍길동1: 010-0000-0000</p>
+            <p>홍길동2: 010-0000-0000</p>
         </div>
     </div>
 
     <div class="overlay" id="overlay">
-        <button class="close-btn" onclick="closeOverlay()">×</button>
+        <button class="close-btn" onclick="closeOverlay()">닫기</button>
         <div class="card" id="overlay-content">
             <!-- 내용이 여기에 동적으로 삽입됩니다 -->
         </div>
@@ -298,4 +306,3 @@
     </script>
 </body>
 </html>
-
