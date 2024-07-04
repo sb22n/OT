@@ -11,7 +11,8 @@
             padding: 0;
             background-color: #e0f7fa; /* 밝은 파란색 배경 */
             color: #333;
-            width: 375px;
+            width: 100%;
+            max-width: 375px;
             height: 812px;
             overflow: hidden;
         }
@@ -47,7 +48,7 @@
         }
 
         .swipe-container .card {
-            flex: 0 0 auto;
+            flex: 0 0 80%; /* 카드 너비를 80%로 고정 */
             scroll-snap-align: center;
             background-color: #fff;
             border-radius: 10px;
@@ -55,8 +56,6 @@
             margin: 10px 5px;
             padding: 10px;
             text-align: left;
-            width: 80%;
-            max-width: 300px;
             box-sizing: border-box;
             transition: transform 0.3s ease;
             cursor: pointer;
@@ -78,18 +77,22 @@
             font-size: 1em; /* 제목 크기 줄임 */
             margin: 10px 0;
             word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+            height: 3em; /* 고정 높이 설정 */
+            overflow: hidden; /* 텍스트가 넘치면 숨김 */
         }
 
         .card img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 10px;
+            flex-shrink: 0; /* 이미지가 축소되지 않도록 설정 */
         }
 
         .card p {
             font-size: 1em;
             line-height: 1.5;
             color: #666;
+            margin: 0;
         }
 
         .contact-container h3, .contact-container p {
@@ -304,17 +307,11 @@
         });
 
         swipeContainer.addEventListener('touchstart', (e) => {
-            isDown = true;
             startX = e.touches[0].pageX - swipeContainer.offsetLeft;
             scrollLeft = swipeContainer.scrollLeft;
         });
 
-        swipeContainer.addEventListener('touchend', () => {
-            isDown = false;
-        });
-
         swipeContainer.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
             const x = e.touches[0].pageX - swipeContainer.offsetLeft;
             const walk = (x - startX) * 2; //scroll-fast
             swipeContainer.scrollLeft = scrollLeft - walk;
@@ -322,5 +319,3 @@
     </script>
 </body>
 </html>
-
-
