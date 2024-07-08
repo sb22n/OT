@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카드 스타일 교육장소 안내</title>
+    <title>티켓 스타일 교육장소 안내</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
@@ -11,224 +11,119 @@
             font-family: 'Pretendard', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0f7fa; /* 밝은 파란색 배경 */
+            background-color: #f5f5f5;
             color: #333;
-            width: 100%;
-            max-width: 375px;
-            height: 812px;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 10px;
+            max-width: 375px;
+            padding: 20px;
             text-align: center;
-            overflow-x: hidden;
         }
 
-        .header, .contact-container {
+        .header {
             background-color: #007BFF;
             color: white;
             padding: 10px;
             border-radius: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-size: 1.2em;
         }
 
-        .contact-container {
-            font-size: 1em; /* 연락처 박스 크기 줄임 */
-        }
-
-        .swipe-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: 10px;
-            padding-bottom: 10px;
-        }
-
-        .swipe-container .card {
-            flex: 0 0 80%; /* 카드 너비를 80%로 고정 */
-            scroll-snap-align: center;
-            background-color: #fff;
+        .ticket {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            background: white;
+            border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 10px 5px;
-            padding: 10px;
-            text-align: left;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* 요소들을 왼쪽 상단에 정렬 */
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 0.9em;
         }
 
-        .swipe-container .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card .emoji {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .card h2 {
-            font-size: 1em; /* 제목 크기 줄임 */
-            margin: 10px 0;
-            word-wrap: break-word; /* 긴 단어를 줄바꿈 */
-            height: 3em; /* 고정 높이 설정 */
-            overflow: hidden; /* 텍스트가 넘치면 숨김 */
-        }
-
-        .card img {
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
             width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            flex-shrink: 0; /* 이미지가 축소되지 않도록 설정 */
+            height: 10px;
+            background: white;
+            left: 0;
         }
 
-        .card p {
+        .ticket::before {
+            top: -10px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket::after {
+            bottom: -10px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .ticket img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .ticket p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .contact-container {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
             font-size: 1em;
-            line-height: 1.5;
-            color: #666;
-            margin: 0;
         }
 
         .contact-container h3, .contact-container p {
             margin: 5px 0;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            color: black;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .overlay .card {
-            width: 90%;
-            max-width: 300px;
-            height: auto;
-            margin: 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: none;
-            transform: none; /* 카드 크기 증가 해제 */
-            text-align: left;
-            font-size: 1.2em; /* 전체 화면에서 글씨 크기 증가 */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* 요소들을 왼쪽 상단에 정렬 */
-        }
-
-        .overlay .card .emoji,
-        .overlay .card h2,
-        .overlay .card p,
-        .overlay .card img {
-            margin-top: 10px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            position: absolute;
-            bottom: 10px;
-        }
-
-        .buttons button {
-            background-color: #ccc;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-size: 1.2em;
-        }
-
-        .buttons button:disabled {
-            background-color: #eeeeee;
-        }
-
-        .buttons button:hover:not(:disabled) {
-            background-color: #aaa;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ccc;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-size: 1.2em;
-        }
-
-        .close-btn:hover {
-            background-color: #aaa;
-        }
-
-        .prev-btn {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-        }
-
-        .next-btn {
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <span class="emoji">📍</span> 신규입사자 오리엔테이션 장소 안내
+            📍 신규입사자 오리엔테이션 장소 안내
         </div>
-        <div class="swipe-container" id="swipe-container">
-            <div class="card" id="step1" onclick="showOverlay('step1')">
-                <div class="emoji">🚶‍♂️</div>
-                <h2>① 배너를 따라 스피드게이트로 이동</h2>
-                <img src="image1.JPG" alt="Step 1 Image">
-                <p>배너를 따라 이동하여 스피드게이트에 도착합니다.</p>
-            </div>
-            <div class="card" id="step2" onclick="showOverlay('step2')">
-                <div class="emoji">🎫</div>
-                <h2>② 보안 직원에게 입장권 보여주기</h2>
-                <img src="image2.JPG" alt="Step 2 Image">
-                <p>보안 직원에게 입장권을 입장권을 보여주고 스피드게이트를 통과합니다.</p>
-            </div>
-            <div class="card" id="step3" onclick="showOverlay('step3')">
-                <div class="emoji">🏢</div>
-                <h2>③ 스피드게이트 통과 후 E/V 타기</h2>
-                <img src="image3.JPG" alt="Step 3 Image">
-                <p>스피드게이트를 통과한 후 엘리베이터를 타고 3층으로 올라갑니다.</p>
-            </div>
-            <div class="card" id="step4" onclick="showOverlay('step4')">
-                <div class="emoji">🗺️</div>
-                <h2>④ 3층 안내데스크에서 오리엔테이션 장소 안내받기</h2>
-                <img src="image4.jpg" alt="Step 4 Image">
-                <p>3층 안내데스크에서 오리엔테이션 장소를 안내받아 이동합니다.</p>
-            </div>
+        <div class="ticket">
+            <h2>① 배너를 따라 스피드게이트로 이동</h2>
+            <img src="image1.JPG" alt="Step 1 Image">
+            <p>배너를 따라 이동하여 스피드게이트에 도착합니다.</p>
+        </div>
+        <div class="ticket">
+            <h2>② 보안 직원에게 입장권 보여주기</h2>
+            <img src="image2.JPG" alt="Step 2 Image">
+            <p>보안 직원에게 입장권을 보여주고 스피드게이트를 통과합니다.</p>
+        </div>
+        <div class="ticket">
+            <h2>③ 스피드게이트 통과 후 E/V 타기</h2>
+            <img src="image3.JPG" alt="Step 3 Image">
+            <p>스피드게이트를 통과한 후 엘리베이터를 타고 3층으로 올라갑니다.</p>
+        </div>
+        <div class="ticket">
+            <h2>④ 3층 안내데스크에서 오리엔테이션 장소 안내받기</h2>
+            <img src="image4.jpg" alt="Step 4 Image">
+            <p>3층 안내데스크에서 오리엔테이션 장소를 안내받아 이동합니다.</p>
         </div>
         <div class="contact-container">
             <h3>담당자 연락처</h3>
@@ -236,88 +131,6 @@
             <p>홍길동2: 010-0000-0000</p>
         </div>
     </div>
-
-    <div class="overlay" id="overlay">
-        <button class="close-btn" onclick="closeOverlay()">닫기</button>
-        <div class="card" id="overlay-content">
-            <!-- 내용이 여기에 동적으로 삽입됩니다 -->
-        </div>
-        <div class="buttons">
-            <button class="prev-btn" id="prevBtn" onclick="navigateOverlay('prev')">이전</button>
-            <button class="next-btn" id="nextBtn" onclick="navigateOverlay('next')">다음</button>
-        </div>
-    </div>
-
-    <script>
-        let currentStep = 1;
-
-        function showOverlay(stepId) {
-            currentStep = parseInt(stepId.replace('step', ''));
-            const cardContent = document.getElementById(stepId).innerHTML;
-            document.getElementById('overlay-content').innerHTML = cardContent;
-            document.getElementById('overlay').style.display = 'flex';
-            updateOverlayButtons();
-        }
-
-        function closeOverlay() {
-            document.getElementById('overlay').style.display = 'none';
-        }
-
-        function navigateOverlay(direction) {
-            if (direction === 'next') {
-                currentStep++;
-            } else if (direction === 'prev') {
-                currentStep--;
-            }
-            showOverlay(`step${currentStep}`);
-        }
-
-        function updateOverlayButtons() {
-            document.getElementById('prevBtn').disabled = currentStep === 1;
-            document.getElementById('nextBtn').disabled = currentStep === 4;
-        }
-
-        // JavaScript to handle the swipe functionality
-        const swipeContainer = document.getElementById('swipe-container');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        swipeContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            swipeContainer.classList.add('active');
-            startX = e.pageX - swipeContainer.offsetLeft;
-            scrollLeft = swipeContainer.scrollLeft;
-        });
-
-        swipeContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            swipeContainer.classList.remove('active');
-        });
-
-        swipeContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            swipeContainer.classList.remove('active');
-        });
-
-        swipeContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - swipeContainer.offsetLeft;
-            const walk = (x - startX) * 2; //scroll-fast
-            swipeContainer.scrollLeft = scrollLeft - walk;
-        });
-
-        swipeContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX - swipeContainer.offsetLeft;
-            scrollLeft = swipeContainer.scrollLeft;
-        });
-
-        swipeContainer.addEventListener('touchmove', (e) => {
-            const x = e.touches[0].pageX - swipeContainer.offsetLeft;
-            const walk = (x - startX) * 2; //scroll-fast
-            swipeContainer.scrollLeft = scrollLeft - walk;
-        });
-    </script>
 </body>
 </html>
+
