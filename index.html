@@ -3,30 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>교육장소 가는 방법</title>
+    <title>교육장소 찾아가기</title>
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 10px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
+        /* 기존 스타일 유지 */
         .header {
             background-color: #001F54;
             color: white;
@@ -37,7 +16,6 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .step {
             background-color: #FFF8E7;
             border: 2px solid #001F54;
@@ -48,95 +26,48 @@
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        .step h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: #001F54;
-        }
-
-        .step img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 2px solid #001F54;
-        }
-
-        .step p {
-            margin: 0 0 15px; /* 하단 마진을 추가하여 간격 조정 */
-            line-height: 1.5;
-        }
-
-        .step .arrow {
-            position: absolute;
-            left: 50%;
-            bottom: -20px;
-            transform: translateX(-50%);
-            font-size: 2em;
-            color: #001F54;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 5px;
+        /* 반응형 디자인을 위한 미디어 쿼리 */
+        @media screen and (max-width: 600px) {
+            .step img {
+                width: 100%;
+                height: auto;
             }
-
             .header {
                 font-size: 1.2em;
-                padding: 10px;
-            }
-
-            .step {
-                padding: 10px;
-            }
-
-            .step h2 {
-                font-size: 1em;
-            }
-
-            .step img {
-                margin-bottom: 10px;
-            }
-
-            .step p {
-                margin-bottom: 10px;
-            }
-
-            .step .arrow {
-                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            📍 교육장소 가는 방법
-        </div>
-        <div class="step">
-            <h2>① C타워 게이트로 이동하기</h2>
-            <p>배너를 따라 C타워 게이트로 이동하세요.</p>
-            <img src="image2.jpg" alt="Step 1 Image">
-            <div class="arrow">⬇️</div>
-        </div>
-        <div class="step">
-            <h2>② 보안직원에게 입장권 보여주기</h2>
-            <p>보안직원에게 입장권을 보여주세요.</p>
-            <img src="image4.jpg" alt="Step 2 Image">
-            <div class="arrow">⬇️</div>
-        </div>
-        <div class="step">
-            <h2>③ 엘리베이터를 타고 3층으로 이동</h2>
-            <p>엘리베이터를 타고 3층으로 올라가세요.</p>
-            <img src="image6.jpg" alt="Step 3 Image">
-            <div class="arrow">⬇️</div>
-        </div>
-        <div class="step">
-            <h2>④ 3층 안내데스크에서 안내받기</h2>
-            <p>3층 안내데스크에서 오리엔테이션 장소를 안내받아 입장해 주세요.</p>
-            <img src="image7.jpg" alt="Step 4 Image">
-        </div>
+        <header class="header">
+            🚶‍♂️ 교육장소 찾아가기: 한 걸음씩 함께 가볼까요?
+        </header>
+        <main>
+            <section class="step">
+                <h2>① 0타워 게이트로 이동하기</h2>
+                <p>교육장소로 가는 첫 단계는 0타워 게이트입니다. 배너를 따라가면 쉽게 찾으실 수 있습니다.</p>
+                <img src="image2.jpg" alt="0타워 게이트 이미지">
+                <div class="arrow" aria-hidden="true">⬇️</div>
+            </section>
+            <section class="step">
+                <h2>② 보안직원에게 입장권 보여주기</h2>
+                <p>게이트에서 보안직원께 입장권을 보여주세요. 간단한 절차이지만, 우리 회사의 보안 문화를 엿볼 수 있는 순간입니다.</p>
+                <img src="image4.jpg" alt="보안 체크 이미지">
+                <div class="arrow" aria-hidden="true">⬇️</div>
+            </section>
+            <section class="step">
+                <h2>③ 엘리베이터를 타고 3층으로 이동</h2>
+                <p>이제 엘리베이터로 3층으로 올라갑니다. 아침 시간이라 약간 붐빌 수 있으니, 여유를 가지고 움직이시기 바랍니다.</p>
+                <img src="image6.jpg" alt="엘리베이터 이미지">
+                <div class="arrow" aria-hidden="true">⬇️</div>
+            </section>
+            <section class="step">
+                <h2>④ 3층 안내데스크에서 안내받기</h2>
+                <p>마지막 단계입니다. 3층 안내데스크에서 오리엔테이션 장소를 확인하세요. 길을 헷갈리셨다면, 이곳에서 다시 한번 안내받으실 수 있습니다.</p>
+                <img src="image7.jpg" alt="안내데스크 이미지">
+            </section>
+        </main>
     </div>
 </body>
 </html>
