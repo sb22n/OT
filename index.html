@@ -7,93 +7,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --background-color: #ecf0f1;
-            --step-background: #ffffff;
+            --primary-color: #F1EEE9; /* 베이지 배경색 */
+            --secondary-color: #152D5E; /* 네이비 블루 */
+            --accent-color: #E63946; /* 밝은 주황/빨간색 */
+            --text-color: #333333;
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: var(--background-color);
+            padding: 10px;
+            background-color: var(--primary-color);
             line-height: 1.6;
-            color: var(--secondary-color);
+            color: var(--text-color);
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 25px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
-            font-size: 1.4em;
-            margin-bottom: 30px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .header:hover {
-            transform: translateY(-5px);
         }
         .step {
-            background-color: var(--step-background);
-            border: none;
+            border: 2px solid var(--secondary-color);
             border-radius: 10px;
-            margin-bottom: 30px;
-            padding: 25px;
+            margin-bottom: 20px;
+            padding: 15px;
             text-align: center;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background-color: white;
         }
         .step h2 {
-            font-size: 1.3em;
+            font-size: 1.1em;
             margin-top: 0;
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
         .step p {
             text-align: left;
-            max-width: 90%;
-            margin: 15px auto;
-            font-size: 1.05em;
+            margin: 10px 0;
+            font-size: 0.9em;
         }
         .step img {
             max-width: 100%;
             height: auto;
-            margin: 15px 0;
+            margin: 10px 0;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
         .arrow {
-            font-size: 1.8em;
-            margin-top: 15px;
-            color: var(--primary-color);
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-            .header {
-                font-size: 1.2em;
-                padding: 20px;
-            }
-            .step p {
-                max-width: 100%;
-            }
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: var(--accent-color);
         }
     </style>
 </head>
