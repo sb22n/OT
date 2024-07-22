@@ -15,7 +15,7 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             background-color: var(--secondary-color);
             line-height: 1.6;
             color: var(--text-color);
@@ -31,23 +31,23 @@
         .header {
             background-color: var(--primary-color);
             color: var(--secondary-color);
-            padding: 30px;
+            padding: 20px;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: bold;
         }
         .steps {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            padding: 20px;
+            padding: 15px;
         }
         .step {
-            flex-basis: calc(50% - 20px);
-            margin-bottom: 30px;
+            flex-basis: calc(50% - 15px);
+            margin-bottom: 20px;
             background-color: var(--secondary-color);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
         }
@@ -56,27 +56,38 @@
         }
         .step h2 {
             color: var(--primary-color);
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-top: 0;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
         .step h2 .emoji {
             margin-right: 10px;
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
         .step p {
             margin: 10px 0;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
         .step img {
             width: 100%;
             border-radius: 10px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .step {
                 flex-basis: 100%;
+            }
+            .header {
+                font-size: 1em;
+                padding: 15px;
+            }
+            .step h2 {
+                font-size: 1em;
+            }
+            .step p {
+                font-size: 0.85em;
             }
         }
     </style>
@@ -88,23 +99,23 @@
         </header>
         <main class="steps">
             <section class="step">
-                <h2><span class="emoji">🏢</span> C타워 게이트 도착</h2>
-                <p>배너를 따라 C타워 게이트로 오세요.</p>
+                <h2><span class="emoji">🏢</span> 0타워 게이트 도착</h2>
+                <p>메인 로비의 0타워 게이트로 오세요. 입구에 안내 배너가 있습니다.</p>
                 <img src="image2.jpg" alt="0타워 게이트 이미지">
             </section>
             <section class="step">
                 <h2><span class="emoji">🔐</span> 보안 확인</h2>
-                <p>게이트에서 보안 직원에게 입장권을 보여주세요.</p>
+                <p>게이트에서 보안 직원에게 입장권을 보여주세요. 빠른 절차로 진행됩니다.</p>
                 <img src="image4.jpg" alt="보안 체크 이미지">
             </section>
             <section class="step">
                 <h2><span class="emoji">🛗</span> 3층으로 이동</h2>
-                <p>엘리베이터 타고 3층으로 올라가세요. 아침 시간대는 약간 붐빌 수 있어요.</p>
+                <p>엘리베이터로 3층으로 올라가세요. 아침 시간대는 약간 붐빌 수 있어요.</p>
                 <img src="image6.jpg" alt="엘리베이터 이미지">
             </section>
             <section class="step">
                 <h2><span class="emoji">ℹ️</span> 안내데스크 확인</h2>
-                <p>3층 NCU 안내데스크에서 최종 장소를 확인하세요. 궁금한 점이 있다면 문의해주세요.</p>
+                <p>3층 안내데스크에서 최종 장소를 확인하세요. 궁금한 점이 있다면 문의해주세요.</p>
                 <img src="image7.jpg" alt="안내데스크 이미지">
             </section>
         </main>
