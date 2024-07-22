@@ -7,9 +7,17 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 100%;
-            margin: 0 auto;
+            margin: 0;
             padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .header {
             background-color: #001F54;
@@ -32,13 +40,24 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .step img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             margin-bottom: 10px;
         }
         .arrow {
             font-size: 1.5em;
             margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .header {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -52,32 +71,32 @@
             <section class="step">
                 <h2>① 0타워 게이트로 이동하기</h2>
                 <p>교육장소로 가는 첫 단계는 0타워 게이트입니다.<br>
-                   배너를 따라가면 쉽게 찾으실 수 있습니다.</p>
+                배너를 따라가면 쉽게 찾으실 수 있습니다.</p>
                 <img src="image2.jpg" alt="0타워 게이트 이미지">
                 <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
                 <h2>② 보안직원에게 입장권 보여주기</h2>
                 <p>게이트에서 보안직원께 입장권을 보여주세요.<br>
-                   간단한 절차이지만, 우리 회사의 보안 문화를<br>
-                   엿볼 수 있는 순간입니다.</p>
+                간단한 절차이지만, 우리 회사의 보안 문화를<br>
+                엿볼 수 있는 순간입니다.</p>
                 <img src="image4.jpg" alt="보안 체크 이미지">
                 <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
                 <h2>③ 엘리베이터를 타고 3층으로 이동</h2>
                 <p>이제 엘리베이터로 3층으로 올라갑니다.<br>
-                   아침 시간이라 약간 붐빌 수 있으니,<br>
-                   여유를 가지고 움직이시기 바랍니다.</p>
+                아침 시간이라 약간 붐빌 수 있으니,<br>
+                여유를 가지고 움직이시기 바랍니다.</p>
                 <img src="image6.jpg" alt="엘리베이터 이미지">
                 <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
                 <h2>④ 3층 안내데스크에서 안내받기</h2>
                 <p>마지막 단계입니다. 3층 안내데스크에서<br>
-                   오리엔테이션 장소를 확인하세요.<br>
-                   길을 헷갈리셨다면, 이곳에서 다시 한번<br>
-                   안내받으실 수 있습니다.</p>
+                오리엔테이션 장소를 확인하세요.<br>
+                길을 헷갈리셨다면, 이곳에서 다시 한번<br>
+                안내받으실 수 있습니다.</p>
                 <img src="image7.jpg" alt="안내데스크 이미지">
             </section>
         </main>
