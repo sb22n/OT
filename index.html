@@ -7,95 +7,104 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #F1EEE9;
-            --secondary-color: #152D5E;
-            --accent-color: #E63946;
-            --text-color: #333333;
+            --primary-color: #2C3E50;
+            --secondary-color: #ECF0F1;
+            --accent-color: #E74C3C;
+            --text-color: #34495E;
         }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
-            padding: 10px;
-            background-color: var(--primary-color);
+            padding: 20px;
+            background-color: var(--secondary-color);
             line-height: 1.6;
             color: var(--text-color);
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         .header {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px;
-            border-radius: 10px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 30px;
             text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
         }
         .step {
-            border: 2px solid var(--secondary-color);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-            background-color: white;
+            flex-basis: calc(50% - 20px);
+            margin-bottom: 30px;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
         }
         .step h2 {
-            font-size: 1.1em;
+            color: var(--primary-color);
+            font-size: 1.2em;
             margin-top: 0;
-            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        .step h2 .emoji {
+            margin-right: 10px;
+            font-size: 1.5em;
         }
         .step p {
-            text-align: left;
             margin: 10px 0;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
         .step img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px 0;
-            border-radius: 8px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
         }
-        .arrow {
-            font-size: 1.5em;
-            margin-top: 10px;
-            color: var(--accent-color);
+        @media (max-width: 768px) {
+            .step {
+                flex-basis: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            오리엔테이션 장소 안내: 함께 찾아가볼까요?
+            🎮 게임 회사 오리엔테이션 가이드
         </header>
-        <main>
+        <main class="steps">
             <section class="step">
-                <h2>1. 0타워 게이트 도착</h2>
-                <p>메인 로비의 0타워 게이트로 와주세요.</p>
+                <h2><span class="emoji">🏢</span> 0타워 게이트 도착</h2>
+                <p>메인 로비의 0타워 게이트로 오세요. 입구에 안내 배너가 있습니다.</p>
                 <img src="image2.jpg" alt="0타워 게이트 이미지">
-                <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
-                <h2>2. 보안 확인</h2>
-                <p>게이트에서 보안 직원에게 입장권을 보여주세요. 간단한 절차입니다.</p>
+                <h2><span class="emoji">🔐</span> 보안 확인</h2>
+                <p>게이트에서 보안 직원에게 입장권을 보여주세요. 빠른 절차로 진행됩니다.</p>
                 <img src="image4.jpg" alt="보안 체크 이미지">
-                <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
-                <h2>3. 3층으로 이동</h2>
-                <p>엘리베이터를 이용해 3층으로 올라가세요. 아침 시간대라 조금 붐빌 수 있습니다.</p>
+                <h2><span class="emoji">🛗</span> 3층으로 이동</h2>
+                <p>엘리베이터로 3층으로 올라가세요. 아침 시간대는 약간 붐빌 수 있어요.</p>
                 <img src="image6.jpg" alt="엘리베이터 이미지">
-                <div class="arrow" aria-hidden="true">⬇️</div>
             </section>
             <section class="step">
-                <h2>4. 안내데스크 확인</h2>
-                <p>3층 안내데스크에서 최종 장소를 확인하세요. 추가 안내가 필요하면 문의해 주세요.</p>
+                <h2><span class="emoji">ℹ️</span> 안내데스크 확인</h2>
+                <p>3층 안내데스크에서 최종 장소를 확인하세요. 궁금한 점이 있다면 문의해주세요.</p>
                 <img src="image7.jpg" alt="안내데스크 이미지">
             </section>
         </main>
